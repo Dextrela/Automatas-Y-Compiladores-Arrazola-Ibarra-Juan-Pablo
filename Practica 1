@@ -1,0 +1,121 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool esNumero(string s) {
+    for (int i = 0; i < (int)s.length(); i++) {
+        if (s[i] < '0' || s[i] > '9') {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool esMinuscula(string s) {
+    for (int i = 0; i < (int)s.length(); i++) {
+        if (s[i] < 'a' || s[i] > 'z') {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool esMayuscula(string s) {
+    for (int i = 0; i < (int)s.length(); i++) {
+        if (s[i] < 'A' || s[i] > 'Z') {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool esIdentificador(string s) {
+    if (!((s[0] >= 'a' && s[0] <= 'z') || (s[0] >= 'A' && s[0] <= 'Z') || s[0] == '_')) {
+        return false;
+    }
+
+    for (int i = 1; i < (int)s.length(); i++) {
+        if (!((s[i] >= 'a' && s[i] <= 'z') ||
+            (s[i] >= 'A' && s[i] <= 'Z') ||
+            (s[i] >= '0' && s[i] <= '9') ||
+            s[i] == '_')) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool esSimbolo(string s) {
+    for (int i = 0; i < (int)s.length(); i++) {
+        if ((s[i] >= 'a' && s[i] <= 'z') ||
+            (s[i] >= 'A' && s[i] <= 'Z') ||
+            (s[i] >= '0' && s[i] <= '9') ||
+            s[i] == '_') {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    cout << "Analizador de cadenas de simbolos" << endl;
+    cout << "Escribe la cadena: ";
+
+    string cadena;
+    getline(cin, cadena);
+
+    string palabra = "";
+
+    int contNumeros = 0;
+    int contMinusculas = 0;
+    int contMayusculas = 0;
+    int contIdentificadores = 0;
+    int contSimbolos = 0;
+
+    cout << "\nResultados:\n";
+
+    for (int i = 0; i <= (int)cadena.length(); i++) {
+
+        if (i == (int)cadena.length() || cadena[i] == ' ') {
+
+            if (palabra != "") {
+                if (esNumero(palabra)) {
+                    cout << "Numero: " << palabra << endl;
+                    contNumeros++;
+                }
+                else if (esMinuscula(palabra)) {
+                    cout << "Minuscula: " << palabra << endl;
+                    contMinusculas++;
+                }
+                else if (esMayuscula(palabra)) {
+                    cout << "Mayuscula: " << palabra << endl;
+                    contMayusculas++;
+                }
+                else if (esIdentificador(palabra)) {
+                    cout << "Identificador: " << palabra << endl;
+                    contIdentificadores++;
+                }
+                else if (esSimbolo(palabra)) {
+                    cout << "Simbolo: " << palabra << endl;
+                    contSimbolos++;
+                }
+            }
+
+            palabra = "";
+        }
+        else {
+            palabra = palabra + cadena[i];
+        }
+    }
+
+    cout << "\n--- Conteo final ---\n";
+    cout << "Numeros: " << contNumeros << endl;
+    cout << "Minusculas: " << contMinusculas << endl;
+    cout << "Mayusculas: " << contMayusculas << endl;
+    cout << "Identificadores: " << contIdentificadores << endl;
+    cout << "Simbolos: " << contSimbolos << endl;
+
+    system("pause"); 
+    return 0;
+}
