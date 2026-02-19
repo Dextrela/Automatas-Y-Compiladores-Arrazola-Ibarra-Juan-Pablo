@@ -1,0 +1,76 @@
+import re
+import tkinter as tk
+from tkinter import filedialog, messagebox
+
+def validar_documentos(archivo_entrada, archivo_salida):
+
+    # Expresiones regulares
+    regex_rfc = r'^[A-ZÑ&]{3,4}\d{6}[A-Z0-9]{3}$'
+    regex_curp = r'^[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]\d$'
+    regex_ine = r'^[A-Z0-9]{18}$'
+
+    try:
+        with open(archivo_entrada, 'r', encoding='utf-8') as f:
+            lineas = f.readlines()
+
+        resultado = []
+
+        for linea in lineas:
+            dato = linea.strip().upper()
+            if not dato:
+                continue
+
+            if re.match(regex_curp, dato):
+                resultado.append(f"{dato} - CURP VÁLIDO")
+
+            elif re.match(regex_rfc, dato):
+                resultado.append(f"{dato} - RFC VÁLIDO")
+
+            elif re.match(regex_ine, dato):
+                resultado.append(f"{dato} - INE VÁLIDO")
+
+            else:
+                resultado.append(f"{dato} - NO VÁLIDO")
+
+        with open(archivo_salida, 'w', encoding='utf-8') as f:
+            f.write("\n".join(resultado))
+
+        messagebox.showinfo("Éxito", "Archivo generado correctamente.")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Ocurrió un error:\n{e}")
+
+
+def seleccionar_archivos():
+    archivo_entrada = filedialog.askopenfilename(
+        title="Selecciona el archivo de entrada",
+        filetypes=[("Archivos de texto", "*.txt")]
+    )
+
+    if not archivo_entrada:
+        return
+
+    archivo_salida = filedialog.asksaveasfilename(
+        title="Guardar archivo de salida",
+        defaultextension=".txt",
+        filetypes=[("Archivos de texto", "*.txt")]
+    )
+
+    if not archivo_salida:
+        return
+
+    validar_documentos(archivo_entrada, archivo_salida)
+
+
+# Ventana principal
+ventana = tk.Tk()
+ventana.title("Validador Automático RFC / CURP / INE")
+ventana.geometry("420x200")
+
+label = tk.Label(ventana, text="Selecciona un archivo .txt para validar", font=("Arial", 12))
+label.pack(pady=20)
+
+boton = tk.Button(ventana, text="Seleccionar Archivo", command=seleccionar_archivos)
+boton.pack(pady=10)
+
+ventana.mainloop()
