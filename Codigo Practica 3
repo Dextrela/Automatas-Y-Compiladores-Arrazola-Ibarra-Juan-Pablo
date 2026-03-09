@@ -1,0 +1,26 @@
+# Leer datos iniciales
+N, S, D, q0, T, C = map(int, input().split())
+
+alfabeto = input().split()
+
+finales = list(map(int, input().split()))
+
+# Guardar transiciones
+transiciones = {}
+
+for _ in range(D):
+    i, x, j = input().split()
+    transiciones[(int(i), x)] = int(j)
+
+# Revisar cadenas
+for _ in range(C):
+    cadena = input().strip()
+    estado = q0
+
+    for simbolo in cadena:
+        estado = transiciones[(estado, simbolo)]
+
+    if estado in finales:
+        print(cadena, "ACEPTADA")
+    else:
+        print(cadena, "RECHAZADA")
