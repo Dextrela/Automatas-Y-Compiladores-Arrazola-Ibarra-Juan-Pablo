@@ -1,0 +1,782 @@
+=== ANALISIS LEXICO ===
+Desarrollado por: Arrazola Ibarra Juan Pablo
+========================
+
+SEPARADOR: #
+PALABRA RESERVADA: include
+OPERADOR: <
+IDENTIFICADOR: iostream
+OPERADOR: >
+SEPARADOR: #
+PALABRA RESERVADA: include
+OPERADOR: <
+IDENTIFICADOR: fstream
+OPERADOR: >
+SEPARADOR: #
+PALABRA RESERVADA: include
+OPERADOR: <
+IDENTIFICADOR: vector
+OPERADOR: >
+SEPARADOR: #
+PALABRA RESERVADA: include
+OPERADOR: <
+IDENTIFICADOR: string
+OPERADOR: >
+SEPARADOR: #
+PALABRA RESERVADA: include
+OPERADOR: <
+IDENTIFICADOR: algorithm
+OPERADOR: >
+SEPARADOR: #
+PALABRA RESERVADA: include
+OPERADOR: <
+IDENTIFICADOR: stdexcept
+OPERADOR: >
+PALABRA RESERVADA: using
+PALABRA RESERVADA: namespace
+PALABRA RESERVADA: std
+SEPARADOR: ;
+PALABRA RESERVADA: class
+IDENTIFICADOR: Employee
+SEPARADOR: {
+PALABRA RESERVADA: private
+OPERADOR: :
+PALABRA RESERVADA: int
+IDENTIFICADOR: id
+SEPARADOR: ;
+IDENTIFICADOR: string
+IDENTIFICADOR: name
+SEPARADOR: ;
+PALABRA RESERVADA: double
+IDENTIFICADOR: salary
+SEPARADOR: ;
+PALABRA RESERVADA: public
+OPERADOR: :
+IDENTIFICADOR: Employee
+SEPARADOR: (
+SEPARADOR: )
+OPERADOR: :
+IDENTIFICADOR: id
+SEPARADOR: (
+ENTERO: 0
+SEPARADOR: )
+SEPARADOR: ,
+IDENTIFICADOR: name
+SEPARADOR: (
+CADENA: ""
+SEPARADOR: )
+SEPARADOR: ,
+IDENTIFICADOR: salary
+SEPARADOR: (
+FLOAT: 0.0
+SEPARADOR: )
+SEPARADOR: {
+SEPARADOR: }
+IDENTIFICADOR: Employee
+SEPARADOR: (
+PALABRA RESERVADA: int
+IDENTIFICADOR: empId
+SEPARADOR: ,
+IDENTIFICADOR: string
+IDENTIFICADOR: empName
+SEPARADOR: ,
+PALABRA RESERVADA: double
+IDENTIFICADOR: empSalary
+SEPARADOR: )
+SEPARADOR: {
+IDENTIFICADOR: id
+OPERADOR: =
+IDENTIFICADOR: empId
+SEPARADOR: ;
+IDENTIFICADOR: name
+OPERADOR: =
+IDENTIFICADOR: empName
+SEPARADOR: ;
+IDENTIFICADOR: salary
+OPERADOR: =
+IDENTIFICADOR: empSalary
+SEPARADOR: ;
+SEPARADOR: }
+PALABRA RESERVADA: int
+IDENTIFICADOR: getId
+SEPARADOR: (
+SEPARADOR: )
+PALABRA RESERVADA: const
+SEPARADOR: {
+PALABRA RESERVADA: return
+IDENTIFICADOR: id
+SEPARADOR: ;
+SEPARADOR: }
+IDENTIFICADOR: string
+IDENTIFICADOR: getName
+SEPARADOR: (
+SEPARADOR: )
+PALABRA RESERVADA: const
+SEPARADOR: {
+PALABRA RESERVADA: return
+IDENTIFICADOR: name
+SEPARADOR: ;
+SEPARADOR: }
+PALABRA RESERVADA: double
+IDENTIFICADOR: getSalary
+SEPARADOR: (
+SEPARADOR: )
+PALABRA RESERVADA: const
+SEPARADOR: {
+PALABRA RESERVADA: return
+IDENTIFICADOR: salary
+SEPARADOR: ;
+SEPARADOR: }
+PALABRA RESERVADA: void
+IDENTIFICADOR: setName
+SEPARADOR: (
+IDENTIFICADOR: string
+IDENTIFICADOR: newName
+SEPARADOR: )
+SEPARADOR: {
+IDENTIFICADOR: name
+OPERADOR: =
+IDENTIFICADOR: newName
+SEPARADOR: ;
+SEPARADOR: }
+PALABRA RESERVADA: void
+IDENTIFICADOR: setSalary
+SEPARADOR: (
+PALABRA RESERVADA: double
+IDENTIFICADOR: newSalary
+SEPARADOR: )
+SEPARADOR: {
+IDENTIFICADOR: salary
+OPERADOR: =
+IDENTIFICADOR: newSalary
+SEPARADOR: ;
+SEPARADOR: }
+PALABRA RESERVADA: void
+IDENTIFICADOR: display
+SEPARADOR: (
+SEPARADOR: )
+PALABRA RESERVADA: const
+SEPARADOR: {
+PALABRA RESERVADA: cout
+OPERADOR: <<
+CADENA: "ID: "
+OPERADOR: <<
+IDENTIFICADOR: id
+OPERADOR: <<
+CADENA: ", Name: "
+OPERADOR: <<
+IDENTIFICADOR: name
+OPERADOR: <<
+CADENA: ", Salary: $"
+OPERADOR: <<
+IDENTIFICADOR: salary
+OPERADOR: <<
+PALABRA RESERVADA: endl
+SEPARADOR: ;
+SEPARADOR: }
+PALABRA RESERVADA: bool
+PALABRA RESERVADA: operator
+OPERADOR: <
+SEPARADOR: (
+PALABRA RESERVADA: const
+IDENTIFICADOR: Employee
+OPERADOR: &
+IDENTIFICADOR: other
+SEPARADOR: )
+PALABRA RESERVADA: const
+SEPARADOR: {
+PALABRA RESERVADA: return
+IDENTIFICADOR: salary
+OPERADOR: >
+IDENTIFICADOR: other
+SEPARADOR: .
+IDENTIFICADOR: salary
+SEPARADOR: ;
+SEPARADOR: }
+SEPARADOR: }
+SEPARADOR: ;
+PALABRA RESERVADA: class
+IDENTIFICADOR: EmployeeManager
+SEPARADOR: {
+PALABRA RESERVADA: private
+OPERADOR: :
+IDENTIFICADOR: vector
+OPERADOR: <
+IDENTIFICADOR: Employee
+OPERADOR: >
+IDENTIFICADOR: employees
+SEPARADOR: ;
+IDENTIFICADOR: string
+IDENTIFICADOR: filename
+SEPARADOR: ;
+PALABRA RESERVADA: int
+IDENTIFICADOR: findEmployeeById
+SEPARADOR: (
+PALABRA RESERVADA: int
+IDENTIFICADOR: id
+SEPARADOR: )
+PALABRA RESERVADA: const
+SEPARADOR: {
+PALABRA RESERVADA: for
+SEPARADOR: (
+IDENTIFICADOR: size
+ERROR: _
+IDENTIFICADOR: t
+IDENTIFICADOR: i
+OPERADOR: =
+ENTERO: 0
+SEPARADOR: ;
+IDENTIFICADOR: i
+OPERADOR: <
+IDENTIFICADOR: employees
+SEPARADOR: .
+IDENTIFICADOR: size
+SEPARADOR: (
+SEPARADOR: )
+SEPARADOR: ;
+IDENTIFICADOR: i
+OPERADOR: ++
+SEPARADOR: )
+SEPARADOR: {
+PALABRA RESERVADA: if
+SEPARADOR: (
+IDENTIFICADOR: employees
+SEPARADOR: [
+IDENTIFICADOR: i
+SEPARADOR: ]
+SEPARADOR: .
+IDENTIFICADOR: getId
+SEPARADOR: (
+SEPARADOR: )
+OPERADOR: ==
+IDENTIFICADOR: id
+SEPARADOR: )
+SEPARADOR: {
+PALABRA RESERVADA: return
+IDENTIFICADOR: i
+SEPARADOR: ;
+SEPARADOR: }
+SEPARADOR: }
+PALABRA RESERVADA: return
+OPERADOR: -
+ENTERO: 1
+SEPARADOR: ;
+SEPARADOR: }
+PALABRA RESERVADA: public
+OPERADOR: :
+IDENTIFICADOR: EmployeeManager
+SEPARADOR: (
+IDENTIFICADOR: string
+IDENTIFICADOR: file
+OPERADOR: =
+CADENA: "employees.txt"
+SEPARADOR: )
+OPERADOR: :
+IDENTIFICADOR: filename
+SEPARADOR: (
+IDENTIFICADOR: file
+SEPARADOR: )
+SEPARADOR: {
+SEPARADOR: }
+PALABRA RESERVADA: void
+IDENTIFICADOR: addEmployee
+SEPARADOR: (
+PALABRA RESERVADA: int
+IDENTIFICADOR: id
+SEPARADOR: ,
+IDENTIFICADOR: string
+IDENTIFICADOR: name
+SEPARADOR: ,
+PALABRA RESERVADA: double
+IDENTIFICADOR: salary
+SEPARADOR: )
+SEPARADOR: {
+PALABRA RESERVADA: if
+SEPARADOR: (
+IDENTIFICADOR: findEmployeeById
+SEPARADOR: (
+IDENTIFICADOR: id
+SEPARADOR: )
+OPERADOR: !=
+OPERADOR: -
+ENTERO: 1
+SEPARADOR: )
+SEPARADOR: {
+PALABRA RESERVADA: throw
+IDENTIFICADOR: runtime
+ERROR: _
+IDENTIFICADOR: error
+SEPARADOR: (
+CADENA: "Employee ID already exists!"
+SEPARADOR: )
+SEPARADOR: ;
+SEPARADOR: }
+IDENTIFICADOR: employees
+SEPARADOR: .
+IDENTIFICADOR: push
+ERROR: _
+IDENTIFICADOR: back
+SEPARADOR: (
+IDENTIFICADOR: Employee
+SEPARADOR: (
+IDENTIFICADOR: id
+SEPARADOR: ,
+IDENTIFICADOR: name
+SEPARADOR: ,
+IDENTIFICADOR: salary
+SEPARADOR: )
+SEPARADOR: )
+SEPARADOR: ;
+PALABRA RESERVADA: cout
+OPERADOR: <<
+ERROR: "
+IDENTIFICADOR: Employee
+IDENTIFICADOR: added
+IDENTIFICADOR: successfully
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    }
+
+    void removeEmployee(int id) {
+        int index = findEmployeeById(id);
+        if (index == -1) {
+            throw runtime_error("
+IDENTIFICADOR: Employee
+IDENTIFICADOR: not
+IDENTIFICADOR: found
+OPERADOR: !
+CADENA: ");
+        }
+        employees.erase(employees.begin() + index);
+        cout << "
+IDENTIFICADOR: Employee
+IDENTIFICADOR: removed
+IDENTIFICADOR: successfully
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    }
+
+    void displayAll() const {
+        if (employees.empty()) {
+            cout << "
+IDENTIFICADOR: No
+IDENTIFICADOR: employees
+IDENTIFICADOR: to
+IDENTIFICADOR: display
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+            return;
+        }
+        cout << "
+ERROR: \
+IDENTIFICADOR: n
+OPERADOR: --
+OPERADOR: -
+IDENTIFICADOR: All
+IDENTIFICADOR: Employees
+OPERADOR: --
+OPERADOR: -
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+        for (const auto& emp : employees) {
+            emp.display();
+        }
+        cout << "
+IDENTIFICADOR: Total
+OPERADOR: :
+CADENA: " << employees.size() << "
+IDENTIFICADOR: employees
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    }
+
+    void searchEmployee(int id) const {
+        int index = findEmployeeById(id);
+        if (index == -1) {
+            cout << "
+IDENTIFICADOR: Employee
+IDENTIFICADOR: with
+IDENTIFICADOR: ID
+CADENA: " << id << "
+IDENTIFICADOR: not
+IDENTIFICADOR: found
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+            return;
+        }
+        cout << "
+IDENTIFICADOR: Employee
+IDENTIFICADOR: found
+OPERADOR: :
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+        employees[index].display();
+    }
+
+    double calculateAverageSalary() const {
+        if (employees.empty()) return 0.0;
+        double total = 0.0;
+        for (const auto& emp : employees) {
+            total += emp.getSalary();
+        }
+        return total / employees.size();
+    }
+
+    void sortBySalary() {
+        sort(employees.begin(), employees.end());
+        cout << "
+IDENTIFICADOR: Employees
+IDENTIFICADOR: sorted
+IDENTIFICADOR: by
+IDENTIFICADOR: salary
+SEPARADOR: (
+IDENTIFICADOR: highest
+IDENTIFICADOR: first
+SEPARADOR: )
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    }
+
+    void saveToFile() {
+        ofstream outFile(filename);
+        if (!outFile.is_open()) {
+            throw runtime_error("
+IDENTIFICADOR: Cannot
+IDENTIFICADOR: open
+IDENTIFICADOR: file
+PALABRA RESERVADA: for
+IDENTIFICADOR: writing
+OPERADOR: !
+CADENA: ");
+        }
+        outFile << employees.size() << endl;
+        for (const auto& emp : employees) {
+            outFile << emp.getId() << endl;
+            outFile << emp.getName() << endl;
+            outFile << emp.getSalary() << endl;
+        }
+        outFile.close();
+        cout << "
+IDENTIFICADOR: Data
+IDENTIFICADOR: saved
+IDENTIFICADOR: to
+CADENA: " << filename << endl;
+    }
+
+    void loadFromFile() {
+        ifstream inFile(filename);
+        if (!inFile.is_open()) {
+            cout << "
+IDENTIFICADOR: No
+IDENTIFICADOR: existing
+IDENTIFICADOR: file
+IDENTIFICADOR: found
+SEPARADOR: .
+IDENTIFICADOR: Starting
+IDENTIFICADOR: fresh
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+            return;
+        }
+        employees.clear();
+        int n;
+        inFile >> n;
+        inFile.ignore();
+        for (int i = 0; i < n; i++) {
+            int id;
+            string name;
+            double salary;
+            inFile >> id;
+            inFile.ignore();
+            getline(inFile, name);
+            inFile >> salary;
+            inFile.ignore();
+            employees.push_back(Employee(id, name, salary));
+        }
+        inFile.close();
+        cout << "
+IDENTIFICADOR: Loaded
+CADENA: " << employees.size() << "
+IDENTIFICADOR: employees
+IDENTIFICADOR: from
+IDENTIFICADOR: file
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    }
+};
+
+void showMenu() {
+    cout << "
+ERROR: \
+IDENTIFICADOR: n
+OPERADOR: ==
+OPERADOR: =
+IDENTIFICADOR: EMPLOYEE
+IDENTIFICADOR: MANAGEMENT
+IDENTIFICADOR: SYSTEM
+OPERADOR: ==
+OPERADOR: =
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 1.
+IDENTIFICADOR: Add
+IDENTIFICADOR: Employee
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 2.
+IDENTIFICADOR: Remove
+IDENTIFICADOR: Employee
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 3.
+IDENTIFICADOR: Display
+IDENTIFICADOR: All
+IDENTIFICADOR: Employees
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 4.
+IDENTIFICADOR: Search
+IDENTIFICADOR: Employee
+IDENTIFICADOR: by
+IDENTIFICADOR: ID
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 5.
+IDENTIFICADOR: Calculate
+IDENTIFICADOR: Average
+IDENTIFICADOR: Salary
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 6.
+IDENTIFICADOR: Sort
+IDENTIFICADOR: Employees
+IDENTIFICADOR: by
+IDENTIFICADOR: Salary
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 7.
+IDENTIFICADOR: Save
+IDENTIFICADOR: to
+IDENTIFICADOR: File
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 8.
+IDENTIFICADOR: Load
+IDENTIFICADOR: from
+IDENTIFICADOR: File
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+FLOAT: 0.
+IDENTIFICADOR: Exit
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+    cout << "
+IDENTIFICADOR: Enter
+IDENTIFICADOR: your
+IDENTIFICADOR: choice
+OPERADOR: :
+CADENA: ";
+}
+
+int main() {
+    EmployeeManager manager;
+    int choice;
+
+    try {
+        manager.loadFromFile();
+    } catch (const exception& e) {
+        cout << "
+IDENTIFICADOR: Error
+IDENTIFICADOR: loading
+IDENTIFICADOR: file
+OPERADOR: :
+CADENA: " << e.what() << endl;
+    }
+
+    do {
+        showMenu();
+        cin >> choice;
+
+        try {
+            switch (choice) {
+                case 1: {
+                    int id;
+                    string name;
+                    double salary;
+                    cout << "
+IDENTIFICADOR: Enter
+IDENTIFICADOR: ID
+OPERADOR: :
+CADENA: ";
+                    cin >> id;
+                    cout << "
+IDENTIFICADOR: Enter
+IDENTIFICADOR: Name
+OPERADOR: :
+CADENA: ";
+                    cin.ignore();
+                    getline(cin, name);
+                    cout << "
+IDENTIFICADOR: Enter
+IDENTIFICADOR: Salary
+OPERADOR: :
+CADENA: ";
+                    cin >> salary;
+                    manager.addEmployee(id, name, salary);
+                    break;
+                }
+                case 2: {
+                    int id;
+                    cout << "
+IDENTIFICADOR: Enter
+IDENTIFICADOR: ID
+IDENTIFICADOR: to
+IDENTIFICADOR: remove
+OPERADOR: :
+CADENA: ";
+                    cin >> id;
+                    manager.removeEmployee(id);
+                    break;
+                }
+                case 3:
+                    manager.displayAll();
+                    break;
+                case 4: {
+                    int id;
+                    cout << "
+IDENTIFICADOR: Enter
+IDENTIFICADOR: ID
+IDENTIFICADOR: to
+IDENTIFICADOR: search
+OPERADOR: :
+CADENA: ";
+                    cin >> id;
+                    manager.searchEmployee(id);
+                    break;
+                }
+                case 5: {
+                    double avg = manager.calculateAverageSalary();
+                    cout << "
+IDENTIFICADOR: Average
+IDENTIFICADOR: Salary
+OPERADOR: :
+ERROR: $
+CADENA: " << avg << endl;
+                    break;
+                }
+                case 6:
+                    manager.sortBySalary();
+                    break;
+                case 7:
+                    manager.saveToFile();
+                    break;
+                case 8:
+                    manager.loadFromFile();
+                    break;
+                case 0:
+                    cout << "
+IDENTIFICADOR: Exiting
+IDENTIFICADOR: system
+OPERADOR: ...
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+                    break;
+                default:
+                    cout << "
+IDENTIFICADOR: Invalid
+IDENTIFICADOR: choice
+OPERADOR: !
+IDENTIFICADOR: Try
+IDENTIFICADOR: again
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+CADENA: ";
+            }
+        } catch (const exception& e) {
+            cout << "
+IDENTIFICADOR: ERROR
+OPERADOR: :
+CADENA: " << e.what() << endl;
+        }
+    } while (choice != 0);
+
+    char save;
+    cout << "
+IDENTIFICADOR: Save
+IDENTIFICADOR: changes
+IDENTIFICADOR: before
+IDENTIFICADOR: exit
+OPERADOR: ?
+SEPARADOR: (
+IDENTIFICADOR: y
+OPERADOR: /
+IDENTIFICADOR: n
+SEPARADOR: )
+OPERADOR: :
+CADENA: ";
+    cin >> save;
+    if (save == 'y' || save == 'Y') {
+        try {
+            manager.saveToFile();
+        } catch (const exception& e) {
+            cout << "
+IDENTIFICADOR: Error
+IDENTIFICADOR: saving
+OPERADOR: :
+CADENA: " << e.what() << endl;
+        }
+    }
+
+    cout << "
+IDENTIFICADOR: Program
+IDENTIFICADOR: terminated
+SEPARADOR: .
+ERROR: \
+IDENTIFICADOR: n
+ERROR: "
+SEPARADOR: ;
+PALABRA RESERVADA: return
+ENTERO: 0
+SEPARADOR: ;
+SEPARADOR: }
+
+--- RESUMEN ---
+Total de comentarios: 2
