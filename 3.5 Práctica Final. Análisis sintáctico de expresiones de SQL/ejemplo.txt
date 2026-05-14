@@ -1,0 +1,10 @@
+SELECT * FROM usuarios;
+SELECT id, nombre, edad FROM clientes WHERE edad > 18;
+INSERT INTO empleados VALUES (101, 'Carlos', 2500.50);
+UPDATE inventario SET cantidad = 50, estado = 'A' WHERE id = 12;
+DELETE FROM registros WHERE fecha < '2023-01-01' AND status = 'inactivo';
+DROP TABLE users;
+
+SELECT nombre FROM alumnos WHERE 
+UPDATE empleados SET salario = 1000  
+DELETE FROM tabla WHERE id >
